@@ -39,8 +39,10 @@ public class StudentController {
         Float height = Float.parseFloat(newStudent.get("height"));
         String hairColor = newStudent.get("hairColor");
         Float gpa = Float.parseFloat(newStudent.get("gpa"));
+        int gradClassYear = Integer.parseInt(newStudent.get("gradClassYear"));
+        int lates = Integer.parseInt(newStudent.get("lates"));
 
-        studentRepo.save(new Student(name, weight, height, hairColor,gpa));
+        studentRepo.save(new Student(name, weight, height, hairColor, gpa, gradClassYear, lates));
         return "redirect:/";
     }
 
@@ -60,18 +62,25 @@ public class StudentController {
     
     @PostMapping("/students/edit/{id}")
     public String editStudent(@PathVariable("id") int uid, Model model, @RequestParam Map <String, String> updateStudent){
+        //Get values from form
         String name = updateStudent.get("name");
         Float weight = Float.parseFloat(updateStudent.get("weight"));
         Float height = Float.parseFloat(updateStudent.get("height"));
         String hairColor = updateStudent.get("hairColor");
         Float gpa = Float.parseFloat(updateStudent.get("gpa"));
+        int gradClassYear = Integer.parseInt(updateStudent.get("gradClassYear"));
+        int lates = Integer.parseInt(updateStudent.get("lates"));
 
+        //get the student being updated by id
         Student target = studentRepo.findByUid(uid);
+        //update using values from form
         target.setName(name);
         target.setWeight(weight);
         target.setHeight(height);
         target.setHairColor(hairColor);
         target.setGpa(gpa);
+        target.setGradClassYear(gradClassYear);
+        target.setLates(lates);
 
         studentRepo.save(target);
         return "redirect:/";

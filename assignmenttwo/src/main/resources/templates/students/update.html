@@ -5,15 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-   <form th:action="@{/students/edit/{uid}(uid=${students.uid})}"  th:object="${students}" method="post">
-        <input type="text" th:field="*{name}" placeholder="Name">
-        <input type="number" th:field="*{weight}" placeholder="Weight">
-        <input type="number" th:field="*{height}" placeholder="Height">
-        <input type="text" th:field="*{hairColor}" placeholder="Hair Color">
-        <input type="number" th:field="*{gpa}" placeholder="GPA">
-        <input type="submit" value="Submit">
-   </form>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Edit Student</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form th:action="@{/students/edit/{uid}(uid=${students.uid})}"  th:object="${students}" method="post">
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg"  type="text" th:field="*{name}" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="number" th:field="*{weight}" placeholder="Weight">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="number" th:field="*{height}" placeholder="Height">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="text" th:field="*{hairColor}" placeholder="Hair Color">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="number" th:field="*{gpa}" placeholder="GPA">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="number" th:field="*{gradClassYear}" placeholder="Graduating year">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control form-control-lg" type="number" th:field="*{lates}" placeholder="Number of lates">
+                        </div>
+                        <div class="d-grid gap-2 w-100">
+                            <input class="btn btn-primary w-100" type="submit" value="Submit">
+                        </div>
+                </form>
+            </div>
+        </div>
+   </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
